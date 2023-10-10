@@ -16,7 +16,7 @@ jobs:
     - name: Instalar surge
       run: |
         npm install --global surge
-   
+
     - name: Hacer deploy
-        run: |
-        surge --project ./ --domain {{env.SURGE_SUBDOMAIN }} --token ${{ secrets.SURGE_API_KEY }}
+      run: |
+        surge --project ./ --domain ${{ env.SURGE_SUBDOMAIN }} --token ${{ secrets.SURGE_API_KEY }}
