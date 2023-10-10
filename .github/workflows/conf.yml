@@ -13,9 +13,10 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Desplegar en Surger.sh
+    - name: Instalar surge
       run: |
-        # Configurar Surge.sh
         npm install --global surge
-
-        surge --project ./ --domain $SURGE_SUBDOMAIN --token ${{ secrets.SURGE_API_KEY }}
+   
+     -name: Hacer deploy
+        run: |
+        surge --project ./ --domain {{env.SURGE_SUBDOMAIN }} --token ${{ secrets.SURGE_API_KEY }}
